@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 사용자가 입력한 숫자가 소수인지 아닌지 알려주는 프로그램을 작성해 봅시다.
+        
+        
+        var isPrime = true; // 소수라고 가정
+        var n = Number(prompt("2이상의 정수 입력하셈"))
+        for (var i = 2; i < n; i++) {
+            if (n % i === 0) { // 자기보다 작은 모든 수로나눠봄
+                isPrime = false; //if문 통과하면서 바뀜
+
+                break // (n % i === 0)이면 반복문 그만두기
+            }
+            // console.log(isPrime, i) //break 확인용
+        }
+
+        if (isPrime) {
+            document.write(n + "은 소수")
+        } else {
+            document.write(n + "은 소수가 아님")
+        }
+    </script>
+</body>
+
+</html>

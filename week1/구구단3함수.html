@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //구구단 계산
+        //프린트
+        //메인
+
+        var newarr = [];
+        function gugudan(n) {
+            for (var i = 0; i < 9; i++) {
+                newarr[i] = n * (i + 1)
+            }
+            return newarr                  //함수에는 매개변수, 리턴값
+        }
+
+        function print(n, result) {
+            document.write("<h1>" + n + "단</h1>")
+            for (var i = 0; i < 9; i++) {
+                document.write(result[i] + "<br>")
+            }
+        }
+
+        function main() {
+            for (var x = 2; x < 10; x++) {
+                var result = gugudan(x);
+                print(x, result);
+            }
+        }
+
+        main();
+
+    </script>
+</body>
+
+</html>

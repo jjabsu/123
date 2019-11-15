@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>소수 목록들</h1>
+    <div id="result"></div>
+
+    <script>
+        // 1 - 10000 사이의 소수를 화면에 출력하는 프로그램을 작성해 봅시다.
+        
+        
+        var numbers = {};
+        numbers.all = [];
+        numbers.prime = [];
+
+        // isPrime은 boolean값만 내주면됨
+
+        // numbers.isPrime = function (number) {
+        //     for (var i = 2; i < number; i++) {
+        //         if (number % i === 0) {
+        //             console.log(number + "은 소수가 아니다.")
+        //         } else {
+        //             console.log(number + "은 소수이다.")
+        //         }
+        //     }    
+
+        // 소수판별
+        numbers.isPrime = function (number) {
+            for (var i = 2; i < number; i++) {
+                if (number % i === 0) {
+                    return false; 
+                }    
+            }
+            return true;  
+        };
+        
+        // 빈배열에 숫자 넣어주기
+        numbers.addAllNumber = function (max_num) {
+            for (var i = 2; i <= max_num; i++) {
+                this.all.push(i)  //this 사용
+            }
+        }
+        
+        // 빈배열에 소수넣어주기
+        numbers.addPrime = function () {
+            for (var i = 0; i < this.all.length; i++) {
+                var n = this.all[i];
+                if (this.isPrime(n)) { //this.isPrime(n) isPrime은 메쏘드니까 this 써줘야됨
+                    this.prime.push(n);
+                }
+            }
+        };
+
+        // 화면에 소수 출력하기
+        numbers.getAllPrimeNumbers = function () {
+            var ret = "";
+            ret += "<h2>전체 소수의 갯수:" + this.prime.length + "</h2>\n";
+            for (var i = 0; i < this.prime.length; i++) {
+                ret += (i + 1) + "번째 소수: " + this.prime[i] + "<br>\n";  // 귀찮으면 document
+            }
+            return ret; //return 값                        
+        };
+
+        numbers.addAllNumber(10000); //실행
+        numbers.addPrime();        //실행  
+        document.getElementById('result').innerHTML = numbers.getAllPrimeNumbers(); //화면에 보여주기
+
+
+
+
+    </script>
+</body>
+
+</html>

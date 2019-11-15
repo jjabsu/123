@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    출력할단: <input type="text" id="num">
+    <button onclick="gugudan()">확인</button>
+
+    <script>
+        function gugudan() {
+            var strN = document.getElementById("num").value
+            var n = Number(strN)
+            for (var j = 1; j <= n; j++) {
+                document.write(n * j + "<br>")
+            }
+        }
+    </script>
+</body>
+
+</html>
