@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="out">계산전</div>
+
+    <script>
+        function getFirstValue() {
+            var n = Number(prompt("첫번째 수"))
+            return n
+        }
+
+        var n = 2
+        function getSecondValue() {
+            var n2 = Number(prompt(n + "번째 수"))
+            n++;
+            return n2
+        }
+
+        function getOperator() {
+            while (true) {
+                var op = prompt("연산자")
+                if (op === "+" || op === "-" || op === "*" || op === "/" || op === "q") {
+                    break;
+                } else {
+                    alert("올바른 연산자 넣어주셈")
+                }
+            }
+            return op
+        }
+
+        function calculate(first, second, op) {
+            let result;
+
+            if (op === "+") {
+                result = first + second
+            } else if (op === "-") {
+                result = first - second
+            } else if (op === "*") {
+                result = first * second
+            } else if (op === "/") {
+                result = first / second
+            }
+            return result
+        }
+
+        function print(result) {
+            return "결과값은" + result 
+        }
+
+        function main() {
+            var n1 = getFirstValue();
+            while(true) {
+                var op = getOperator();
+                if(op === 'q') {
+                    break
+                }
+                var n2 = getSecondValue();
+                result = calculate(n1, n2, op) // 계산
+            }
+            var out = document.getElementById("out")
+            out.innerHTML = print(result); // print
+        }
+
+        main();
+    </script>
+
+</body>
+
+</html>

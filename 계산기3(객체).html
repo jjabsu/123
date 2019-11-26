@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="out">계산전</div>
+
+    <script>
+
+        var input = { count: 2 };
+        
+        input.getFirstValue = function () {
+            var n = Number(prompt("첫번째 수"))
+            return n
+        };
+
+        input.getSecondValue = function () { 
+            var n2 = Number(prompt(this.count + "번째 수"))
+            this.count++; // 객체안에 넣어준 count
+            return n2
+        };
+
+        input.getOperator = function () {
+            while (true) {
+                var op = prompt("연산자")
+                if (op === "+" || op === "-" || op === "*" || op === "/" || op === "q") {
+                    break;
+                } else {
+                    alert("올바른 연산자 넣어주셈")
+                }
+            }
+            return op
+        };
+
+
+        var output = {};
+
+        output.out = document.getElementById("out")
+        output.print = function (result) { 
+            return this.out.innerHTML = "최종값은" + result // this.out으로 해줘야됨 
+        };
+
+        var calculator = {};
+        calculator.calculate = function (first, second, op) {
+            let result;
+
+            if (op === "+") {
+                result = first + second
+            } else if (op === "-") {
+                result = first - second
+            } else if (op === "*") {
+                result = first * second
+            } else if (op === "/") {
+                result = first / second
+            }
+            return result
+        };
+
+
+        function main() {
+            var n1 = input.getFirstValue();
+            while (true) {
+                var op = input.getOperator();
+                if (op === 'q') {
+                    break
+                }
+                var n2 = input.getSecondValue();
+                result = calculator.calculate(n1, n2, op)
+            }
+            output.print(result);
+        };
+
+        main();
+
+    </script>
+
+</body>
+
+</html>
